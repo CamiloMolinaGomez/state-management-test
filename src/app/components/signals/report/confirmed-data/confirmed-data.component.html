@@ -1,0 +1,10 @@
+@if (loadingIndicator()) {
+<p>loading...</p>
+} @else if (regionSummary()) {
+<p>
+  Total confirmed cases
+  <strong>{{ regionSummary()?.confirmed | number }}</strong>
+</p>
+} @else {
+<p>Region not selected</p>
+}

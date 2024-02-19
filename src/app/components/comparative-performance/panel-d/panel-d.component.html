@@ -1,0 +1,4 @@
+<p [appHighlight]="'#EB5088'">panel-d works! (Behavior subject child) - {{ subject | async }}</p>
+<p>subject value is: {{ subject | async }}</p>
+<button (click)="changeSubjectValue()">Increase value</button>
+<ng-container *ngIf="changeDetection()"></ng-container>

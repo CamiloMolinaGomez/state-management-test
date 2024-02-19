@@ -1,0 +1,12 @@
+<label for="selectRegion">Select a region:</label>
+<select
+  id="selectRegion"
+  class="form-select"
+  (change)="selectRegion($any($event.target).value)"
+  [size]="$any(itemsPerPage$ | async) - 2"
+  (scroll)="onScroll($event)"
+>
+  @for (region of regions$ | async ; track $index) {
+  <option [value]="region.iso">{{ region.name }}</option>
+  }
+</select>

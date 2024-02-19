@@ -1,0 +1,7 @@
+<p [appHighlight]="'#3390FF'"> panel-a works! (Behavior subject) - {{ subject | async }}</p>
+<p>Current subject value is: {{ subject | async }}</p>
+<button (click)="changeSubjectValue()">Increase value</button>
+<ng-container *ngIf="changeDetection()"></ng-container>
+
+<hr>
+<app-panel-d />

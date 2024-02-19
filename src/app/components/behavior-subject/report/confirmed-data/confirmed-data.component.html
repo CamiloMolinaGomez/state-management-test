@@ -1,0 +1,10 @@
+@if (loadingIndicator$ | async) {
+<p>loading...</p>
+} @else if (regionSummary$ | async) {
+<p>
+  Total confirmed cases
+  <strong>{{ (regionSummary$ | async)?.confirmed | number }}</strong>
+</p>
+} @else {
+<p>Region not selected</p>
+}

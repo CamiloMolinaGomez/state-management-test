@@ -1,0 +1,7 @@
+<label>Select a date: </label>
+<br>
+<input
+  type="date"
+  [ngModel]="date() | date : 'yyyy-MM-dd'"
+  (change)="selectDate($any($event.target).value)"
+/>

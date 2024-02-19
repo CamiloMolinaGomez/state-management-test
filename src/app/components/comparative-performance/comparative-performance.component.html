@@ -1,0 +1,6 @@
+<div [appHighlight]="'#F4AEFA'" class="container">Top level component [App component]</div>
+<section class="container">
+  <app-panel-a class="panel"/>
+  <app-panel-b class="panel"/>
+  <ng-container *ngIf="changeDetection()"></ng-container>
+</section>

@@ -1,0 +1,24 @@
+<h4>{{ provinceTitle() }}</h4>
+<table class="table table-bordered table-sm">
+  <thead>
+    <tr>
+      @for (header of provinceHeaders; track $index) {
+      <th scope="col">{{ header }}</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of provinceData()?.cities; track $index) {
+    <tr>
+      <td scope="row">{{ item.name }}</td>
+      <td>{{ item.fips }}</td>
+      <td>{{ item.confirmed }}</td>
+      <td>{{ item.deaths }}</td>
+    </tr>
+    } @empty {
+    <tr>
+      <td>No data available</td>
+    </tr>
+    }
+  </tbody>
+</table>

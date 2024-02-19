@@ -1,0 +1,20 @@
+@if (regionSelected$ | async) {
+<label for="selectProvince">
+  Provinces of <strong>{{ $any(this.regionSelected$ | async)!.name }}</strong>
+</label>
+}@else {
+<label for="selectProvince">Region not selected</label>
+}
+<select
+  id="selectProvince"
+  class="form-select"
+  (change)="selectProvince($any($event.target).value)"
+  [size]="$any(itemsPerPage$ | async) - 2"
+  (scroll)="onScroll($event)"
+>
+  @for (province of provinces$ | async; track $index) {
+  <option [value]="province.province">{{ province.province }}</option>
+  } @empty {
+  <option disabled>No provinces found</option>
+  }
+</select>

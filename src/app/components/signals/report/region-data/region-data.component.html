@@ -1,0 +1,45 @@
+<h4>{{ regionTitle() }}</h4>
+
+<table class="table table-bordered table-sm">
+  <thead>
+    <tr>
+      @for (header of regionHeaders; track $index) {
+      <th scope="col">{{ header }}</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of regionDetails(); track $index) {
+    <tr>
+      <td scope="row">{{ item.confirmed }}</td>
+      <td>{{ item.deaths }}</td>
+      <td>{{ item.recovered }}</td>
+      <td>{{ item.region.province }}</td>
+      <td>{{ item.region.cities.length }}</td>
+    </tr>
+    } @empty {
+    <tr>
+      <td colspan="5">{{ emptyTableMessage() }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item" [ngClass]="{ disabled: disablePrevPaginationBtn() }">
+      <a class="page-link" (click)="changeRegionReportPage(currentPage() - 1)"
+        >Previous</a
+      >
+    </li>
+    @for (page of pagination(); track $index) {
+    <li class="page-item" [ngClass]="{ active: currentPage() === page, disabled: loadingIndicator() }">
+      <a class="page-link" (click)="changeRegionReportPage(page)" >{{ page }}</a>
+    </li>
+    }
+    <li class="page-item" [ngClass]="{ disabled: disableNextPaginationBtn() }">
+      <a class="page-link" (click)="changeRegionReportPage(currentPage() + 1)"
+        >Next</a
+      >
+    </li>
+  </ul>
+</nav>

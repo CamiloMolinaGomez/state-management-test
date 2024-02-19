@@ -1,0 +1,4 @@
+<p [appHighlight]="'#a3cc95'">panel-c works! (signals child) - {{ mysignal() }}</p>
+<p>signal value {{ mysignal() }}</p>
+<button (click)="changeSignalValue()">Increase value</button>
+<ng-container *ngIf="changeDetection()"></ng-container>

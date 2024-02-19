@@ -1,0 +1,7 @@
+<p [appHighlight]="'#DEE386'">panel-b works! (signals) - {{ mysignal() }}</p>
+<p>Current signal value is: {{ mysignal() }}</p>
+<button (click)="changeSignalValue()">Increase value</button>
+<ng-container *ngIf="changeDetection()"></ng-container>
+
+<hr>
+<app-panel-c />

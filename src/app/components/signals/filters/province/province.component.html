@@ -1,0 +1,20 @@
+@if (regionSelected()) {
+<label for="selectProvince">
+  Provinces of <strong>{{ this.regionSelected()!.name }}</strong>
+</label>
+}@else {
+<label for="selectProvince">Region not selected</label>
+}
+<select
+  id="selectProvince"
+  class="form-select"
+  (change)="selectProvince($any($event.target).value)"
+  [size]="itemsPerPage() - 2"
+  (scroll)="onScroll($event)"
+>
+  @for (province of provinces(); track $index) {
+  <option [value]="province.province">{{ province.province }}</option>
+  } @empty {
+  <option disabled>No provinces found</option>
+  }
+</select>
